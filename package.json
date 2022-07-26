@@ -1,0 +1,9 @@
+{
+  "name": "tselenium",
+  "version": "1.0.0",
+  "description": "A Selenium WebDriver client in TypeScript",
+  "main": "index.js",
+  "repository": "ssh://git@github.com/hgsgtk/tselenium",
+  "author": "hgsgtk@gmail.com",
+  "license": "MIT"
+}
