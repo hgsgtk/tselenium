@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "A Selenium WebDriver client in TypeScript",
   "main": "index.js",
+  "types": "index.d.ts",
   "repository": "ssh://git@github.com/hgsgtk/tselenium",
   "author": "hgsgtk@gmail.com",
   "license": "MIT",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "typescript": "^4.7.4"
   }
 }
