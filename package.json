@@ -10,5 +10,10 @@
   "dependencies": {},
   "devDependencies": {
     "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepublishOnly": "yarn run build"
   }
 }
