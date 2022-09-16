@@ -7,7 +7,9 @@
   "repository": "ssh://git@github.com/hgsgtk/tselenium",
   "author": "hgsgtk@gmail.com",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.27.2"
+  },
   "devDependencies": {
     "typescript": "^4.7.4"
   },
