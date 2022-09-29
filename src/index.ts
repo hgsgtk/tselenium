@@ -1,14 +1,17 @@
 import axios from 'axios';
 
-async function openAndCloseBrowser(url: string) {
+async function openPage(url: string) {
     let sessionId = '';
+    let webdriverAddr = 'http://localhost:9515';
 
-    await axios.post(url + '/session', {
+    const headers = {
+        'Content-Type': 'application/json; charset=utf-8'
+    }
+
+    await axios.post(webdriverAddr + '/session', {
         capabilities: {}
     }, {
-        headers: {
-            'Content-Type': 'application/json; charset=utf-8'
-        }
+        headers: headers,
     }).then(function (response) {
         console.log(`HTTP status code: ${response.status}`)
         console.log(JSON.parse(JSON.stringify(response.data)))
@@ -18,7 +21,18 @@ async function openAndCloseBrowser(url: string) {
         console.log(error);
     });
     
-    axios.delete(url + '/session/' + sessionId)
+    await axios.post(webdriverAddr + '/session/' + sessionId + '/url', {
+        url: url
+    }, {
+        headers: headers,
+    }).then(function (response) {
+        console.log(`HTTP status code: ${response.status}`)
+        console.log(JSON.parse(JSON.stringify(response.data)))
+    }).catch(function (error) {
+        console.log(error);
+    })
+
+    axios.delete(webdriverAddr + '/session/' + sessionId)
         .then(function (response) {
             console.log(`HTTP status code: ${response.status}`)
             console.log(JSON.parse(JSON.stringify(response.data)))
@@ -28,4 +42,4 @@ async function openAndCloseBrowser(url: string) {
         });
 }
 
-openAndCloseBrowser('http://localhost:9515')
+openPage('https://www.google.com');
